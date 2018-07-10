@@ -1,24 +1,23 @@
-# README
+# Rails Engine
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Api Creation Learning Project. First attempt at creating a Rails Backend API
 
-Things you may want to cover:
+# Dependencies
 
-* Ruby version
+This app was created with Rails 5.1.6
 
-* System dependencies
+# Setup
 
-* Configuration
+```bundle install
+   rails db:create
+   rails db:migrate
+   rails db:seed
+```
 
-* Database creation
+# Automated Testing
 
-* Database initialization
+I chose to give Minitest a try for Rails as I've only used Rspec
 
-* How to run the test suite
+# WIP
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This is a work in progress. Any and all feedback appreciated.
