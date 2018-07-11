@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :items
       resources :merchants, only: [:index, :show]
-        get "api/v1/merchant"
+        get "/api/v1/merchants/:id/revenue", to: "merchant_revenue#show"
     end
   end
 end

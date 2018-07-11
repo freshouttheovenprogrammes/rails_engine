@@ -17,6 +17,7 @@ group :development, :test do
   gem 'minitest-rails-capybara'
   gem 'minitest-reporters'
   gem 'factory_bot_rails'
+  gem 'shoulda-matchers'
 end
 
 group :test do
