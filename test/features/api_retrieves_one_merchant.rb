@@ -15,7 +15,7 @@ class Api::V1::MerchantsControllerTest < ActionController::TestCase
   test "should get show" do
     merchant = FactoryBot.build :merchant
 
-    get :show, format: merchant.id
+    get api_v1_merchant_path(merchant)
 
     result = JSON.parse(response.body)
 
