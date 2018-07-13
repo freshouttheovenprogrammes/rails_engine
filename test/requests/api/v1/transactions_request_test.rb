@@ -8,6 +8,18 @@ class Api::V1::TransactionsControllerTest < ActionDispatch::IntegrationTest
 
     transactions = JSON.parse(response.body)
 
+    assert_response :success
     assert_equal transactions.count, 3
+  end
+
+  test "gets show of a transaction" do
+    transaction = create(:transaction)
+
+    get api_v1_transaction_path(transaction)
+
+    result = JSON.parse(response.body)
+
+    assert_response :success
+    assert_equal result["id"], transaction.id
   end
 end
