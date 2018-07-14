@@ -1,7 +1,6 @@
 require "test_helper"
 
 class Api::V1::MerchantsControllerTest < ActionDispatch::IntegrationTest
-
   test "should get merchant index" do
     create_list(:merchant, 3)
 
@@ -15,7 +14,7 @@ class Api::V1::MerchantsControllerTest < ActionDispatch::IntegrationTest
 
   test "should get merchant show" do
     merchant = create(:merchant)
-    
+
     get api_v1_merchant_path(merchant), params: { merchant: { id: merchant.id } }
 
     result = JSON.parse(response.body)
