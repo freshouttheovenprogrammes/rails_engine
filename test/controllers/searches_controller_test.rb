@@ -9,7 +9,7 @@ class Api::V1::MerchantsController::SearchesController < ActionDispatch::Integra
 
     result = JSON.parse(response.body)
 
-    assert_response :success #what kind of 200 would this be?
-    assert_equal result["name"], desired_merchant.name
+    assert_response :success
+    assert_equal result[0]["name"], desired_merchant.name
   end
 end
