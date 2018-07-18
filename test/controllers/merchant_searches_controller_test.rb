@@ -49,4 +49,11 @@ class Api::V1::MerchantsController::SearchesController < ActionDispatch::Integra
     assert_response :success
     assert_equal result[0]["id"], desired_merchant.id
   end
+  # 
+  # test "can find all merchants by name" do
+  #   m1 = build(:merchant, name: "testname")
+  #   m2 = build(:merchant, name: "testname")
+  #
+  #   get "/api/v1/merchants/find_all?"
+  # end
 end
