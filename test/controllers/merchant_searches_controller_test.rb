@@ -27,26 +27,4 @@ class Api::V1::MerchantsController::SearchesController < ActionDispatch::Integra
     assert_response :success
     assert_equal result[0]["id"], desired_merchant.id
   end
-
-  test "can find merchant by created_at parameter exact match" do
-    desired_merchant = @merchants[2]
-
-    get "/api/v1/merchants/find?created_at=#{desired_merchant.created_at}"
-
-    result = JSON.parse(response.body)
-
-    assert_response :success
-    assert_equal result[0]["id"], desired_merchant.id
-  end
-
-  test "can find merchant by updated_at parameter exact match" do
-    desired_merchant = @merchants[0]
-
-    get "/api/v1/merchants/find?updated_at=#{desired_merchant.updated_at}"
-
-    result = JSON.parse(response.body)
-
-    assert_response :success
-    assert_equal result[0]["id"], desired_merchant.id
-  end
 end
