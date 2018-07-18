@@ -1,11 +1,11 @@
 class Api::V1::Merchants::SearchesController < ApplicationController
   def show
-    render json: (Merchant.where name: params["name"])
+    render json: (Merchant.where(merchant_params))
   end
 
   private
 
-  def search(&block)
-    yield if block_given?
+  def merchant_params
+    params.permit(:id, :name, :created_at, :updated_at)
   end
 end
