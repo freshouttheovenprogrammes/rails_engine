@@ -4,18 +4,23 @@
     namespace :v1 do
       namespace :merchants do
         get 'find' => "searches#show"
+        get 'find_all' => "searches#index"
       end
       namespace :transactions do
         get 'find' => "searches#show"
+        get 'find_all' => "searches#index"
       end
       namespace :customers do
         get 'find' => "searches#show"
+        get 'find_all' => "searches#index"
       end
       namespace :invoices do
         get 'find' => "searches#show"
+        get 'find_all' => "searches#index"
       end
       namespace :invoice_items do
         get 'find' => "searches#show"
+        get 'find_all' => "searches#index"
       end
       resources :merchants, only: [:index, :show]
       resources :transactions, only: [:index, :show]
