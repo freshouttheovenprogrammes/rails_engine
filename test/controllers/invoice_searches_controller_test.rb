@@ -43,9 +43,7 @@ class Api::V1::InvoicesController::SearchesControllerTest < ActionDispatch::Inte
 
     get "/api/v1/invoices/find?status=#{this_desired_invoice.status}"
 
-    result = JSON.parse(response.body)
-    require "pry"; binding.pry
     assert_response :success
-    assert_equal result[0]["id"], this_desired_invoice.id
+    assert response.body.include?(this_desired_invoice.id.to_s)
   end
 end
