@@ -2,7 +2,7 @@ require 'test_helper'
 
 class Api::V1::InvoiceItemsController::SearchesControllerTest < ActionDispatch::IntegrationTest
   def setup
-    @invoice_items = create_list(:invoice_items, 3)
+    @invoice_items = create_list(:invoice_item, 3)
   end
 
   test "can find invoice_item by item id parameter exact match" do
@@ -39,9 +39,11 @@ class Api::V1::InvoiceItemsController::SearchesControllerTest < ActionDispatch::
   end
 
   test "can find invoice_item by quantity parameter exact match" do
-    this_desired_invoice_item = create(:invoice_item)
+    desired_invoice_item = @invoice_items[2]
 
-    get "/api/v1/invoice_items/find?quantity=#{this_desired_invoice_item.quantity}"
+    get "/api/v1/invoice_items/find?quantity=#{desired_invoice_item.quantity}"
+
+    result = JSON.parse(response.body)
 
     assert_response :success
     assert_equal result[0]["id"], desired_invoice_item.id
