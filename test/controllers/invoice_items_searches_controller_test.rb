@@ -50,9 +50,11 @@ class Api::V1::InvoiceItemsController::SearchesControllerTest < ActionDispatch::
   end
 
   test "can find invoice_item by unit_price parameter exact match" do
-    this_desired_invoice_item = create(:invoice_item)
+    desired_invoice_item = @invoice_items[2]
 
-    get "/api/v1/invoice_items/find?unit_price=#{this_desired_invoice_item.unit_price}"
+    get "/api/v1/invoice_items/find?unit_price=#{desired_invoice_item.unit_price}"
+
+    result = JSON.parse(response.body)
 
     assert_response :success
     assert_equal result[0]["id"], desired_invoice_item.id
