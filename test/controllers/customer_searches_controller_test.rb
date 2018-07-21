@@ -5,10 +5,10 @@ class Api::V1::CustomersController::SearchesControllerTest < ActionDispatch::Int
     @customers = create_list(:customer, 3)
   end
 
-  test "can find customer by first name parameter exact match" do
+  test "can find customer by first name parameter case insensitive match" do
     desired_customer = @customers[2]
 
-    get "/api/v1/customers/find?first_name=#{desired_customer.first_name}"
+    get "/api/v1/customers/find?first_name=#{desired_customer.first_name.upcase}"
 
     result = JSON.parse(response.body)
 

@@ -1,6 +1,8 @@
 class Api::V1::Customers::SearchesController < ApplicationController
   def show
-    render json: (Customer.where(customer_params))
+    require "pry"; binding.pry
+    thing = params.values[0].downcase
+    render json: (Customer.where(customer_params) == thing)
   end
 
   def index
