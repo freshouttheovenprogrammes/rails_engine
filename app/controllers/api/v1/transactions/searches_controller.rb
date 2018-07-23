@@ -1,10 +1,10 @@
 class Api::V1::Transactions::SearchesController < ApplicationController
   def show
-    render json: column_param == "result" ? (Transaction.where("lower(#{column_param}) = ?", value_param)).first : (Transaction.where(transaction_params))
+    render json: column_param == "result" ? (Transaction.find_by("lower(#{column_param}) = ?", value_param)) : (Transaction.find_by(transaction_params))
   end
 
   def index
-    render json: (Transaction.find_all(transaction_params))
+    render json: (Transaction.where(transaction_params))
   end
 
   private

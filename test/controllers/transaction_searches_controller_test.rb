@@ -13,7 +13,7 @@ class Api::V1::TransactionsController::SearchesController < ActionDispatch::Inte
     result = JSON.parse(response.body)
 
     assert_response :success
-    assert_equal result[0]["invoice_id"], desired_transaction.invoice_id
+    assert_equal result["invoice_id"], desired_transaction.invoice_id
   end
 
   test "can find transaction by credit card number parameter exact match" do
@@ -24,7 +24,7 @@ class Api::V1::TransactionsController::SearchesController < ActionDispatch::Inte
     result = JSON.parse(response.body)
 
     assert_response :success
-    assert_equal result[0]["credit_card_number"], desired_transaction.credit_card_number
+    assert_equal result["credit_card_number"], desired_transaction.credit_card_number
   end
 
   test "can find transaction by id parameter exact match" do
@@ -35,7 +35,7 @@ class Api::V1::TransactionsController::SearchesController < ActionDispatch::Inte
     result = JSON.parse(response.body)
 
     assert_response :success
-    assert_equal result[0]["id"], desired_transaction.id
+    assert_equal result["id"], desired_transaction.id
   end
 
   test "can find transaction by credit_card_expiration_date parameter exact match" do

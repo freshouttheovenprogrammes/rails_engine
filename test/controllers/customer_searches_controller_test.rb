@@ -35,6 +35,18 @@ class Api::V1::CustomersController::SearchesControllerTest < ActionDispatch::Int
     result = JSON.parse(response.body)
 
     assert_response :success
-    assert_equal result[0]["id"], desired_customer.id
+    assert_equal result["id"], desired_customer.id
+  end
+
+  test "can find all customers by name exact match" do
+    customers = [Customer.create(first_name: "Fred"), Customer.create(first_name: "Fred")]
+
+    get "/api/v1/customers/find_all?first_name=Fred"
+
+    result = JSON.parse(response.body)
+
+    assert_response :success
+    assert result.is_a?(Array)
+    assert_equal result[0]["first_name"], "Fred"
   end
 end

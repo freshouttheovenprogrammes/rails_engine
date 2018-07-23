@@ -25,6 +25,6 @@ class Api::V1::MerchantsController::SearchesController < ActionDispatch::Integra
     result = JSON.parse(response.body)
 
     assert_response :success
-    assert_equal result[0]["id"], desired_merchant.id
+    assert_equal result["id"], desired_merchant.id
   end
 end

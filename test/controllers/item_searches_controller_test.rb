@@ -13,13 +13,13 @@ class Api::V1::ItemsController::SearchesController < ActionDispatch::Integration
     result = JSON.parse(response.body)
 
     assert_response :success
-    assert_equal result[0]["name"], desired_item.name
+    assert_equal result["name"], desired_item.name
   end
 
-  test "can find item by description parameter case insensitive match" do
+  test "can find item by description parameter case exact match" do
     desired_item = @items[2]
 
-    get "/api/v1/items/find?description=#{desired_item.description.upcase}"
+    get "/api/v1/items/find?description=#{desired_item.description}"
 
     result = JSON.parse(response.body)
 
@@ -35,7 +35,7 @@ class Api::V1::ItemsController::SearchesController < ActionDispatch::Integration
     result = JSON.parse(response.body)
 
     assert_response :success
-    assert_equal result[0]["id"], desired_item.id
+    assert_equal result["id"], desired_item.id
   end
 
   test "can find item by unit_price parameter exact match" do
@@ -44,7 +44,7 @@ class Api::V1::ItemsController::SearchesController < ActionDispatch::Integration
     get "/api/v1/items/find?unit_price=#{desired_item.unit_price}"
 
     assert_response :success
-    assert response.body.include?(desired_item.id.to_s)
+    assert response.body.include?(desired_item.unit_price.to_s)
   end
 
   test "can find item by merchant_id parameter exact match" do
@@ -53,6 +53,7 @@ class Api::V1::ItemsController::SearchesController < ActionDispatch::Integration
     get "/api/v1/items/find?merchant_id=#{desired_item.merchant_id}"
 
     assert_response :success
-    assert response.body.include?(desired_item.id.to_s)
+
+    assert response.body.include?(desired_item.merchant_id.to_s)
   end
 end

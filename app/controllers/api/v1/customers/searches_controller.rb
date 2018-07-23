@@ -1,10 +1,10 @@
 class Api::V1::Customers::SearchesController < ApplicationController
   def show
-    render json: column_param == "first_name" || column_param == "last_name" ? (Customer.where("lower(#{column_param}) = ?", value_param)).first : Customer.where(customer_params)
+    render json: column_param == "first_name" || column_param == "last_name" ? (Customer.find_by("lower(#{column_param}) = ?", value_param)) : Customer.find_by(customer_params)
   end
 
   def index
-    render json: (Customer.find_all(customer_params))
+    render json: (Customer.where(customer_params))
   end
 
   private

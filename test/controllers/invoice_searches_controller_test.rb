@@ -13,7 +13,7 @@ class Api::V1::InvoicesController::SearchesControllerTest < ActionDispatch::Inte
     result = JSON.parse(response.body)
 
     assert_response :success
-    assert_equal result[0]["customer_id"], desired_invoice.customer_id
+    assert_equal result["customer_id"], desired_invoice.customer_id
   end
 
   test "can find invoice by merchant id parameter exact match" do
@@ -24,7 +24,7 @@ class Api::V1::InvoicesController::SearchesControllerTest < ActionDispatch::Inte
     result = JSON.parse(response.body)
 
     assert_response :success
-    assert_equal result[0]["merchant_id"], desired_invoice.merchant_id
+    assert_equal result["merchant_id"], desired_invoice.merchant_id
   end
 
   test "can find invoice by id parameter exact match" do
@@ -35,6 +35,6 @@ class Api::V1::InvoicesController::SearchesControllerTest < ActionDispatch::Inte
     result = JSON.parse(response.body)
 
     assert_response :success
-    assert_equal result[0]["id"], desired_invoice.id
+    assert_equal result["id"], desired_invoice.id
   end
 end
