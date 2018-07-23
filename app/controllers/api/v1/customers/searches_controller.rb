@@ -1,8 +1,9 @@
 class Api::V1::Customers::SearchesController < ApplicationController
   def show
-    require "pry"; binding.pry
-    thing = params.values[0].downcase
-    render json: (Customer.where(customer_params) == thing)
+    column = params.keys.first
+    value = params.values.first.downcase
+
+    render json: column == ("first_name" || "last_name") ? (Customer.where("lower(#{column}) = ?", value)).first : Customer.where(customer_params)
   end
 
   def index

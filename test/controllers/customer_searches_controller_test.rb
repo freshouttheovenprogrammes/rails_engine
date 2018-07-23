@@ -11,9 +11,9 @@ class Api::V1::CustomersController::SearchesControllerTest < ActionDispatch::Int
     get "/api/v1/customers/find?first_name=#{desired_customer.first_name.upcase}"
 
     result = JSON.parse(response.body)
-
+    require "pry"; binding.pry
     assert_response :success
-    assert_equal result[0]["first_name"], desired_customer.first_name
+    assert_equal result["first_name"], desired_customer.first_name
   end
 
   test "can find customer by last name parameter exact match" do
