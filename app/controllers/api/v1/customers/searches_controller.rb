@@ -4,7 +4,7 @@ class Api::V1::Customers::SearchesController < ApplicationController
   end
 
   def index
-    render json: (Customer.where(customer_params))
+    render json: "name".in?(column_param) ? Customer.where("lower(#{column_param}) = ?", value_param) : (Customer.where(customer_params))
   end
 
   private

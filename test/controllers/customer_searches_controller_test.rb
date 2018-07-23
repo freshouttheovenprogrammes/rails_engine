@@ -41,7 +41,7 @@ class Api::V1::CustomersController::SearchesControllerTest < ActionDispatch::Int
   test "can find all customers by first_name case insensitive match" do
     [Customer.create(first_name: "Fred"), Customer.create(first_name: "Fred")]
 
-    get "/api/v1/customers/find_all?first_name=Fred"
+    get "/api/v1/customers/find_all?first_name=FRed"
 
     result = JSON.parse(response.body)
 
@@ -50,17 +50,17 @@ class Api::V1::CustomersController::SearchesControllerTest < ActionDispatch::Int
     assert_equal result[0]["first_name"], "Fred"
     assert_equal result[1]["first_name"], "Fred"
   end
-  #
-  # test "can find all customers by name exact match" do
-  #   [Customer.create(first_name: "Fred"), Customer.create(first_name: "Fred")]
-  #
-  #   get "/api/v1/customers/find_all?first_name=Fred"
-  #
-  #   result = JSON.parse(response.body)
-  #
-  #   assert_response :success
-  #   assert result.is_a?(Array)
-  #   assert_equal result[0]["first_name"], "Fred"
-  #   assert_equal result[1]["first_name"], "Fred"
-  # end
+
+  test "can find all customers by last name exact match" do
+    [Customer.create(last_name: "Johannesberg"), Customer.create(last_name: "Johannesberg")]
+
+    get "/api/v1/customers/find_all?last_name=JoHaNnEsBeRg"
+
+    result = JSON.parse(response.body)
+
+    assert_response :success
+    assert result.is_a?(Array)
+    assert_equal result[0]["last_name"], "Johannesberg"
+    assert_equal result[1]["last_name"], "Johannesberg"
+  end
 end
