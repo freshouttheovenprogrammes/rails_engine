@@ -38,15 +38,6 @@ class Api::V1::TransactionsController::SearchesController < ActionDispatch::Inte
     assert_equal result["id"], desired_transaction.id
   end
 
-  test "can find transaction by credit_card_expiration_date parameter exact match" do
-    desired_transaction = @transactions[1]
-
-    get "/api/v1/transactions/find?credit_card_expiration_date=#{desired_transaction.credit_card_expiration_date}"
-
-    assert_response :success
-    assert response.body.include?(desired_transaction.id.to_s)
-  end
-
   test "can find transaction by result parameter exact match" do
     desired_transaction = @transactions[1]
 
