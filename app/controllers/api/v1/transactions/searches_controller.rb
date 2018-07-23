@@ -1,6 +1,6 @@
 class Api::V1::Transactions::SearchesController < ApplicationController
   def show
-    render json: (Transaction.where(transaction_params))
+    render json: column_param == "result" ? (Transaction.where("lower(#{column_param}) = ?", value_param)).first : (Transaction.where(transaction_params))
   end
 
   def index

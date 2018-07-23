@@ -1,6 +1,6 @@
 class Api::V1::Merchants::SearchesController < ApplicationController
   def show
-    render json: (Merchant.where(merchant_params))
+    render json: column_param == "name" ? (Merchant.where("lower(#{column_param}) = ?", value_param)).first : Merchant.where(merchant_params)
   end
 
   def index

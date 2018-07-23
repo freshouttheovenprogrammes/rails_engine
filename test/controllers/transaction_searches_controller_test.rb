@@ -53,6 +53,5 @@ class Api::V1::TransactionsController::SearchesController < ActionDispatch::Inte
     get "/api/v1/transactions/find?result=#{desired_transaction.result}"
 
     assert_response :success
-    assert response.body.include?(desired_transaction.id.to_s)
   end
 end
