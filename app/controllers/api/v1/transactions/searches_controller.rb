@@ -1,6 +1,6 @@
 class Api::V1::Transactions::SearchesController < ApplicationController
   def show
-    render json: column_param == "result" ? (Transaction.find_by("lower(#{column_param}) = ?", value_param)) : (Transaction.find_by(transaction_params))
+    render json: "result".in?(column_param) ? (Transaction.find_by("lower(#{column_param}) = ?", value_param)) : (Transaction.find_by(transaction_params))
   end
 
   def index

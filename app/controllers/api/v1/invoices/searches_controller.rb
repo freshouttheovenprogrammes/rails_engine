@@ -1,6 +1,6 @@
 class Api::V1::Invoices::SearchesController < ApplicationController
   def show
-    render json: column_param == "status" ? (Invoice.find_by("lower(status) = ?", value_param)) : (Invoice.find_by(invoices_params))
+    render json: "status".in?(column_param) ? (Invoice.find_by("lower(status) = ?", value_param)) : (Invoice.find_by(invoices_params))
   end
 
   def index

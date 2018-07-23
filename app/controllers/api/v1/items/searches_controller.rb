@@ -1,6 +1,6 @@
 class Api::V1::Items::SearchesController < ApplicationController
   def show
-    render json: column_param == "name" ? (Item.find_by("lower(#{column_param}) = ?", value_param)) : Item.find_by(item_params)
+    render json: "name".in?(column_param) ? (Item.find_by("lower(#{column_param}) = ?", value_param)) : Item.find_by(item_params)
   end
 
   def index
