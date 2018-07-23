@@ -1,6 +1,6 @@
 class Api::V1::Invoices::SearchesController < ApplicationController
   def show
-    render json: (Invoice.where(invoices_params))
+    render json: column_param == "status" ? (Invoice.where("lower(status) = ?", value_param)).first : (Invoice.where(invoices_params))
   end
 
   def index

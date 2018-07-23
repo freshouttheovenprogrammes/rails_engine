@@ -6,10 +6,10 @@ class Api::V1::MerchantsController::SearchesController < ActionDispatch::Integra
     @merchants = create_list(:merchant, 3)
   end
 
-  test "can find merchant by name parameter exact match" do
+  test "can find merchant by name parameter case insensitive match" do
     desired_merchant = @merchants[2]
 
-    get "/api/v1/merchants/find?name=#{desired_merchant.name}"
+    get "/api/v1/merchants/find?name=#{desired_merchant.name.upcase}"
 
     result = JSON.parse(response.body)
 

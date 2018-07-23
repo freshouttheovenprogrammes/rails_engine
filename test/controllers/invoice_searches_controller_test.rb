@@ -37,13 +37,4 @@ class Api::V1::InvoicesController::SearchesControllerTest < ActionDispatch::Inte
     assert_response :success
     assert_equal result[0]["id"], desired_invoice.id
   end
-
-  test "can find invoice by status parameter exact match" do
-    this_desired_invoice = create(:invoice)
-
-    get "/api/v1/invoices/find?status=#{this_desired_invoice.status}"
-
-    assert_response :success
-    assert response.body.include?(this_desired_invoice.id.to_s)
-  end
 end

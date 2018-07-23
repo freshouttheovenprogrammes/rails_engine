@@ -22,7 +22,7 @@ class Api::V1::CustomersController::SearchesControllerTest < ActionDispatch::Int
     get "/api/v1/customers/find?last_name=#{desired_customer.last_name.upcase}"
 
     result = JSON.parse(response.body)
-    require "pry"; binding.pry
+
     assert_response :success
     assert_equal result["last_name"], desired_customer.last_name
   end
