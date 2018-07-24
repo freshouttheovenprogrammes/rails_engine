@@ -27,4 +27,12 @@ class Api::V1::MerchantsController::SearchesController < ActionDispatch::Integra
     assert_response :success
     assert_equal result["id"], desired_merchant.id
   end
+
+  test "can grab random merchant" do
+    get "/api/v1/merchants/random"
+
+    result = JSON.parse(response.body)
+
+    assert_response :success
+  end
 end

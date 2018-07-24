@@ -4,7 +4,11 @@ class Api::V1::Merchants::SearchesController < ApplicationController
   end
 
   def index
-    render json: (Merchant.where(merchant_params))
+    render json: "name".in?(column_param) ? (Merchant.where("lower(#{column_param}) = ?", value_param)) : (Merchant.where(merchant_params))
+  end
+
+  def random
+    render json: Merchant.order("RANDOM()").first
   end
 
   private

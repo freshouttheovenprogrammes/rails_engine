@@ -5,6 +5,7 @@
       namespace :merchants do
         get 'find' => "searches#show"
         get 'find_all' => "searches#index"
+        get 'random' => "searches#random"
       end
       namespace :transactions do
         get 'find' => "searches#show"
