@@ -18,6 +18,7 @@ group :development, :test do
   gem 'minitest-reporters'
   gem 'factory_bot_rails'
   gem 'shoulda-matchers'
+  gem 'database_cleaner'
 end
 
 group :test do
