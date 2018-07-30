@@ -15,6 +15,15 @@ Minitest::Reporters.use!(
   Minitest.backtrace_filter
 )
 
+# config isn't working..
+# Shoulda::Matchers.configure do |config|
+#   config.integrate do |with|
+#     with.test_framework :minitest
+#   end
+# end
+
+
+
 class Minitest::Unit::TestCase
   include FactoryBot::Syntax::Methods
 end
