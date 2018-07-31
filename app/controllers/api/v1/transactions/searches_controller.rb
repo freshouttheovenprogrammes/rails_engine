@@ -7,6 +7,10 @@ class Api::V1::Transactions::SearchesController < ApplicationController
     render json: (Transaction.where(transaction_params))
   end
 
+  def random
+    render json: Transaction.order("RANDOM()").first
+  end
+
   private
 
   def transaction_params
