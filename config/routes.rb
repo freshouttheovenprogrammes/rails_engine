@@ -6,6 +6,7 @@
         get 'find' => "searches#show"
         get 'find_all' => "searches#index"
         get 'random' => "searches#random"
+        get '/:id/items' => "item_searches#merchant_items"
       end
       namespace :transactions do
         get 'find' => "searches#show"
