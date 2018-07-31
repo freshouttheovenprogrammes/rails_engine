@@ -6,5 +6,6 @@ FactoryBot.define do
     merchant_id 1
     created_at "2018-07-11 09:02:47"
     updated_at "2018-07-11 09:02:47"
+    merchant
   end
 end

@@ -6,5 +6,7 @@ FactoryBot.define do
     sequence(:unit_price) {|n| (n * 2)}
     created_at "2018-07-11 08:50:16"
     updated_at "2018-07-11 08:50:16"
+    invoice
+    item
   end
 end
