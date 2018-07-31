@@ -10,22 +10,27 @@
       namespace :transactions do
         get 'find' => "searches#show"
         get 'find_all' => "searches#index"
+        get 'random' => "searches#random"
       end
       namespace :customers do
         get 'find' => "searches#show"
         get 'find_all' => "searches#index"
+        get 'random' => "searches#random"
       end
       namespace :invoices do
         get 'find' => "searches#show"
         get 'find_all' => "searches#index"
+        get 'random' => "searches#random"
       end
       namespace :invoice_items do
         get 'find' => "searches#show"
         get 'find_all' => "searches#index"
+        get 'random' => "searches#random"
       end
       namespace :items do
         get 'find' => "searches#show"
         get 'find_all' => "searches#index"
+        get 'random' => "searches#random"
       end
       resources :merchants, only: [:index, :show]
       resources :transactions, only: [:index, :show]
