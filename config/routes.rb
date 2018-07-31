@@ -7,6 +7,7 @@
         get 'find_all' => "searches#index"
         get 'random' => "searches#random"
         get '/:id/items' => "item_searches#merchant_items"
+        get '/:id/invoices' => "invoice_searches#merchant_invoices"
       end
       namespace :transactions do
         get 'find' => "searches#show"
