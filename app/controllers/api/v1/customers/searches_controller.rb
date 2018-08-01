@@ -7,10 +7,6 @@ class Api::V1::Customers::SearchesController < ApplicationController
     render json: "name".in?(column_param) ? Customer.where("lower(#{column_param}) = ?", value_param) : (Customer.where(customer_params))
   end
 
-  def random
-    render json: Customer.order("RANDOM()").first
-  end
-
   private
 
   def customer_params
