@@ -10,5 +10,3 @@ FactoryBot.define do
     item
   end
 end
-
-# QUESTION: how did you like to handle testing has_many relations? 
