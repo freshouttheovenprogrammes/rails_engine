@@ -35,6 +35,8 @@
         get 'find' => "searches#show"
         get 'find_all' => "searches#index"
         get 'random' => "random_find#show"
+        get '/:id/invoice' => "invoice_searches#show", as: "invoice"
+        get '/:id/item' => "item_searches#show", as: "item"
       end
       namespace :items do
         get 'find' => "searches#show"
