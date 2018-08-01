@@ -42,6 +42,8 @@
         get 'find' => "searches#show"
         get 'find_all' => "searches#index"
         get 'random' => "random_find#show"
+        get '/:id/invoice_items' => "invoice_items_searches#index", as: "all_invoice_items"
+        get '/:id/transactions' => "transactions_searches#index", as: "all_transactions"
       end
       resources :merchants, only: [:index, :show]
       resources :transactions, only: [:index, :show]
