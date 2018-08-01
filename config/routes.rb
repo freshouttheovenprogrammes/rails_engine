@@ -13,12 +13,14 @@
         get 'find' => "searches#show"
         get 'find_all' => "searches#index"
         get 'random' => "random_find#show"
+        get '/:id/invoice' => "invoice_searches#show"
       end
       namespace :customers do
         get 'find' => "searches#show"
         get 'find_all' => "searches#index"
         get 'random' => "random_find#show"
         get '/:id/invoices' => "invoice_searches#index"
+        get '/:id/transactions' => "transaction_searches#index"
       end
       namespace :invoices do
         get 'find' => "searches#show"

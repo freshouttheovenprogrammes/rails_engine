@@ -2,7 +2,7 @@ require 'test_helper'
 
 class Api::V1::MerchantsController::InvoiceSearchesController < ActionDispatch::IntegrationTest
 
-  test "can find all items by merchant" do
+  test "can find all invoices by merchant" do
     merchant = create(:merchant)
     create(:invoice, merchant: bad_merchant = build(:merchant, name: "not the one"))
     create_list(:invoice, 3, merchant: merchant)
