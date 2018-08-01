@@ -1,5 +1,5 @@
 class Api::V1::Merchants::InvoiceSearchesController < ApplicationController
   def index
-    render json: Merchant.all_invoices(params[:id])
+    render json: Merchant.find(params[:id]).invoices
   end
 end
