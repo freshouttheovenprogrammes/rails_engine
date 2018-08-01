@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::API
-  def column_param
+  def column_param # QUESTION: is there a better way to call the key and hash here?
     params.keys.first
   end
 
