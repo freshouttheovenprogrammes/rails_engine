@@ -10,7 +10,7 @@ class Api::V1::CustomersController::InvoiceSearchesController < ActionDispatch::
     get "/api/v1/customers/#{customer.id}/invoices"
 
     result = JSON.parse(response.body)
-    require "pry"; binding.pry
+
     refute result[0].include?(bad_customer.id)
   end
 end

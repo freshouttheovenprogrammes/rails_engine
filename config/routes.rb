@@ -6,21 +6,21 @@
         get 'find' => "searches#show"
         get 'find_all' => "searches#index"
         get 'random' => "random_find#show"
-        get '/:id/items' => "item_searches#index"
-        get '/:id/invoices' => "invoice_searches#index"
+        get '/:id/items' => "item_searches#index", as: "all_items"
+        get '/:id/invoices' => "invoice_searches#index", as: "all_invoices"
       end
       namespace :transactions do
         get 'find' => "searches#show"
         get 'find_all' => "searches#index"
         get 'random' => "random_find#show"
-        get '/:id/invoice' => "invoice_searches#show"
+        get '/:id/invoice' => "invoice_searches#show", as: "all_transactions"
       end
       namespace :customers do
         get 'find' => "searches#show"
         get 'find_all' => "searches#index"
         get 'random' => "random_find#show"
-        get '/:id/invoices' => "invoice_searches#index"
-        get '/:id/transactions' => "transaction_searches#index"
+        get '/:id/invoices' => "invoice_searches#index", as: "all_invoices"
+        get '/:id/transactions' => "transaction_searches#index", as: "all_transactions"
       end
       namespace :invoices do
         get 'find' => "searches#show"
